@@ -9,8 +9,8 @@ class CustomBadgeEdit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  InkWell(
-      onTap: ()=>onPress,
+    return  GestureDetector(
+      onTap: ()=>onPress(),
       child: Container(
         height: 25.h,
         width: 25.h,

@@ -46,7 +46,7 @@
 	<key>NSMicrophoneUsageDescription</key>
 	<string>This app need to access to microphone because we need to allow  user to record video</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This app need to access to gallery because we need to allow  user to pickup image</string>
+	<string>This app need to access to gallery because we need to allow  user to pick image</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -69,6 +69,8 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>io.flutter.embedded_views_preview</key>
+	<true/>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 </dict>
 </plist>

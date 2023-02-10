@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:faciltateur_de_vies/core/extensions/date_extensions.dart';
 import 'package:faciltateur_de_vies/core/helpers/date_helper.dart';
 import 'package:faciltateur_de_vies/core/local_storage/storage_manager.dart';
@@ -133,7 +135,7 @@ class _UserPersonalDataScreenState extends State<UserPersonalDataScreen> {
                 number = PhoneNumber(
                     isoCode: PhoneNumber.getISO2CodeByPrefix(
                         getCodeNumber(account.user_mobile)),
-                    phoneNumber: account.user_mobile);
+                    phoneNumber: getNumber(account.user_mobile));
                 model = initData(account);
                 return Form(
                   key: _formKey,
@@ -206,14 +208,18 @@ class _UserPersonalDataScreenState extends State<UserPersonalDataScreen> {
                           SizedBox(
                             height: 50.h,
                             child: PhoneNumberField(
-                              number: number!,
+                              number: Platform.isAndroid
+                                  ? number!
+                                  : PhoneNumber(
+                                      isoCode: PhoneNumber.getISO2CodeByPrefix(
+                                          getCodeNumber(account.user_mobile))),
                               enabled: false,
                               textColor: AppColors.grey60Color,
                               updatePhoneNumber: (PhoneNumber phone) {
                                 number = phone;
                               },
                               controller: phoneController
-                                ..text = account.user_mobile!,
+                                ..text = getNumber(account.user_mobile!),
                               fillColor: AppColors.whiteColor,
                               hintTextStyle: AppTextStyles.robotoRegularGrey50
                                   .copyWith(fontSize: 14.sp),
@@ -312,6 +318,15 @@ class _UserPersonalDataScreenState extends State<UserPersonalDataScreen> {
     return "+33";
   }
 
+  String getNumber(String? phoneNumber) {
+    if (phoneNumber != null && phoneNumber.length > 8) {
+      return phoneNumber.substring(
+        phoneNumber.length - 9,
+      );
+    }
+    return phoneNumber!;
+  }
+
   // store data before user edit them
   AccountModel initData(AccountModel prevData) {
     return AccountModel(
@@ -323,11 +338,18 @@ class _UserPersonalDataScreenState extends State<UserPersonalDataScreen> {
 
   int dateTimeStamp() {
     try {
-      var dateTime =
-          DateFormat("yyyy-MM-dd").parse(birthdayController.text, true);
+      var dateTime = DateTime.parse(
+        birthdayController.text.trim(),
+      );
 
-      int timestamp = int.parse(
-          dateTime.millisecondsSinceEpoch.toString().substring(0, 10));
+      int timestamp = 0;
+      if (dateTime.year > 2001) {
+        timestamp = int.parse(
+            dateTime.millisecondsSinceEpoch.toString().substring(0, 10));
+      } else {
+        timestamp = int.parse(
+            dateTime.millisecondsSinceEpoch.toString().substring(0, 9));
+      }
 
       return timestamp;
     } catch (e) {

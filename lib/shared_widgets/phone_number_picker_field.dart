@@ -29,7 +29,7 @@ class PhoneNumberField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InternationalPhoneNumberInput(
-      hintText: '00 00 00 00 00',
+      hintText: '6 12 34 56 78',
       maxLength: 9,
       isEnabled: enabled,
       textStyle: TextStyle(color: textColor),
@@ -52,7 +52,7 @@ class PhoneNumberField extends StatelessWidget {
       inputDecoration: InputDecoration(
         fillColor: fillColor,
         filled: true,
-        hintText: '00 00 00 00 00',
+        hintText: '6 12 34 56 78',
         hintStyle: hintTextStyle,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(5.r)),

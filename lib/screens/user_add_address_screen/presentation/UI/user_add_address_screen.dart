@@ -49,6 +49,10 @@ class _UserAddAddressScreenState extends State<UserAddAddressScreen> {
         .pickedLocation
         .addressComponents![widget.pickedLocation.addressComponents!.length - 1]
         .shortName;
+    townController.text = widget
+        .pickedLocation
+        .addressComponents![widget.pickedLocation.addressComponents!.length - 3]
+        .longName;
     super.initState();
   }
 
@@ -204,7 +208,7 @@ class _UserAddAddressScreenState extends State<UserAddAddressScreen> {
                       SizedBox(
                         height: 15.h,
                       ),
-                      Text("Surface(m^2)",
+                      Text("Surface(m2)",
                           style: AppTextStyles.robotoBoldBlack(12.sp)),
                       SizedBox(
                         height: 10.h,

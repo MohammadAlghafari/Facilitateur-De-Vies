@@ -3,21 +3,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class EditIcon extends StatelessWidget {
-  const EditIcon({super.key});
+  const EditIcon({super.key, this.width = 15, this.height = 15, this.iconSize = 7, this.color = AppColors.whiteColor});
+  final double width;
+  final double height;
+  final double iconSize;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 15.r,
-      height: 15.r,
+      width: width.r,
+      height: height.r,
       decoration: const BoxDecoration(
         color: AppColors.blackColor,
         shape: BoxShape.circle,
       ),
       child: Icon(
         Icons.edit,
-        color: AppColors.whiteColor,
-        size: 7.r,
+        color: color,
+        size: iconSize.r,
       ),
     );
   }

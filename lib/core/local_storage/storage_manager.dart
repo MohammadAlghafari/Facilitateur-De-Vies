@@ -157,6 +157,20 @@ class StorageManager {
     );
   }
 
+  /// This fun to store user photo locally in the client device
+
+  static void setUserPhoto(String photo) {
+    _sharedPreferences.setString(PrefsKeys.photo, photo);
+  }
+
+  /// This fun to get user photo from db locally in the client device
+
+  static String? getUserPhoto() {
+    return _sharedPreferences.getString(
+      PrefsKeys.photo,
+    );
+  }
+
   /// This fun to store user address locally in the client device
 
   static void setUserAddresses(String addressesJson) {

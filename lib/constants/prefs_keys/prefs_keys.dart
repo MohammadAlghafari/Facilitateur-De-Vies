@@ -18,6 +18,8 @@ class PrefsKeys {
   static String email='EMAIL';
   // This key for fullName
   static String fullName ='FULL_NAME';
+  // This key for photo
+  static String photo ='PHOTO';
   // This key for user address
   static String userAddresses ='USER_ADDRESSES';
 }

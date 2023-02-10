@@ -1,3 +1,5 @@
+import 'package:faciltateur_de_vies/screens/user_profile_screen/data/data_source/upload_photo_provider/upload_photo_api_imp.dart';
+import 'package:faciltateur_de_vies/screens/user_profile_screen/domain/usecase/upload_photo_usecase.dart';
 
 import '../../screens/easer_service_history_details_screen/domain/usecase/get_easer_service_history_details_usecase.dart';
 import '../../screens/user_upcoming_recurrent_service_details_screen/domain/usecase/get_upcoming_recurrent_service_details_usecase.dart';
@@ -26,6 +28,7 @@ initSingletonInstances() async {
 
 registerApiCalls() {
   getIt.registerLazySingleton(() => LoginApiImp());
+  getIt.registerLazySingleton(() => UploadPhotoApiImp());
   getIt.registerLazySingleton(() => NotificationsApiImp());
   getIt.registerLazySingleton(() => CheckUserExistApiImp());
   getIt.registerLazySingleton(() => RegisterApiImp());
@@ -111,7 +114,7 @@ registerRepositoriesImp() {
         getIt(),
       ));
   getIt.registerLazySingleton(
-      () => UserProfileRepositoryImp(getIt(), getIt(), getIt()));
+      () => UserProfileRepositoryImp(getIt(), getIt(), getIt(), getIt()));
   getIt.registerLazySingleton(() => AddAddressRepositoryImp(
         getIt(),
       ));
@@ -220,6 +223,8 @@ registerUseCases() {
   getIt.registerLazySingleton(
       () => DeleteUserAccountUseCase(getIt<UserProfileRepositoryImp>()));
   getIt.registerLazySingleton(
+      () => UploadPhotoUseCase(getIt<UserProfileRepositoryImp>()));
+  getIt.registerLazySingleton(
       () => AddAddressUseCase(getIt<AddAddressRepositoryImp>()));
   getIt.registerLazySingleton(
       () => BecomeAnEmployeeUseCase(getIt<BecomeAnEmployeeRepositoryImp>()));
@@ -284,7 +289,7 @@ registerProviders() {
   getIt.registerLazySingleton(() => SharedHelpFormProvider(getIt()));
   getIt.registerLazySingleton(() => SharedFaqsProvider(getIt(), getIt()));
   getIt.registerLazySingleton(
-      () => UserProfileProvider(getIt(), getIt(), getIt()));
+      () => UserProfileProvider(getIt(), getIt(), getIt(), getIt()));
   getIt.registerLazySingleton(() => ForgetPasswordProvider(getIt()));
   getIt.registerLazySingleton(() => SharedChatProvider(getIt(), getIt()));
   getIt.registerLazySingleton(() => VerifyMobileNumberProvider(getIt()));

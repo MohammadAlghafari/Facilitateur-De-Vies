@@ -30,6 +30,7 @@ class LoginProvider extends BaseProvider {
       StorageManager.setUserUrssaf(response.data!.urssafMember);
       StorageManager.setUserId(response.data!.userId);
       StorageManager.setUserSocId(response.data!.socid);
+      StorageManager.setUserPhoto(response.data!.photo);
       StorageManager.setEmail(response.data!.email);
       StorageManager.setFullName(response.data!.fullName);
       StorageManager.setUserAddresses(

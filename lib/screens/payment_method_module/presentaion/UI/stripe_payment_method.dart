@@ -109,8 +109,7 @@ class StripePaymentScreenState extends State<StripePaymentScreen> {
                                             .instance
                                             .platformDispatcher
                                             .platformBrightness ==
-                                        Brightness.dark &&
-                                    Platform.isIOS
+                                        Brightness.dark
                                 ? Colors.black
                                 : Colors.transparent,
                             textColor: Colors.black,

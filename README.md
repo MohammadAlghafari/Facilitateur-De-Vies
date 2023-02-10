@@ -61,3 +61,10 @@ if you need to change the icon of the application please follow these steps  :
  - add a new icon in assets folder in Project  
  - change the path in flutter_launcher_icons.yaml file 
  - then run this "flutter pub run flutter_launcher_icons:main -f flutter_launcher_icons.yaml"
+
+## XD design links
+- Easer
+https://xd.adobe.com/view/288935a0-acec-4fc8-a059-ec760c76765c-7dda/screen/399069c2-fc41-4ddc-abf0-83cd569cbfe3/
+
+- User 
+https://xd.adobe.com/view/32ee922b-02aa-4b37-ae5b-075ab7af7987-67bd/screen/f1aad970-1626-4499-8a83-6a639f3f66fb/

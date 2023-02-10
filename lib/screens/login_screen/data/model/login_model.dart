@@ -15,6 +15,7 @@ class LoginModel {
   int subscriptionType;
   bool urssafMember;
   String clientId;
+  String photo;
   List<AddressModel> addresses;
   LoginModel({
     required this.token,
@@ -25,6 +26,7 @@ class LoginModel {
     required this.subscriptionType,
     required this.urssafMember,
     required this.clientId,
+    required this.photo,
     required this.addresses,
   });
 
@@ -37,6 +39,7 @@ class LoginModel {
     int? subscriptionType,
     bool? urssafMember,
     String? clientId,
+    String? photo,
     List<AddressModel>? addresses,
   }) {
     return LoginModel(
@@ -48,6 +51,7 @@ class LoginModel {
       subscriptionType: subscriptionType ?? this.subscriptionType,
       urssafMember: urssafMember ?? this.urssafMember,
       clientId: clientId ?? this.clientId,
+      photo: photo ?? this.photo,
       addresses: addresses ?? this.addresses,
     );
   }
@@ -61,6 +65,7 @@ class LoginModel {
       'fullName': fullName,
       'urssafMember': urssafMember,
       'clientId': clientId,
+      'photo': photo,
       'contacts': addresses.map((x) => x.toMap()).toList(),
     };
   }
@@ -75,6 +80,7 @@ class LoginModel {
       subscriptionType: map['subscriptionType'] as int,
       urssafMember: map['urssafMember'] as bool,
       clientId: map['clientId'] as String,
+      photo: map['photo'] ?? '',
       addresses: map['contacts'] != null
           ? (map['contacts'] as List)
               .map<AddressModel>((json) => AddressModel.fromMap(json))

@@ -38,7 +38,7 @@ class _TableRangeCalendarMonthState extends State<TableRangeCalendarMonth> {
         selectionColor: AppColors.greenColor,
         selectionRadius: 50.r,
         showNavigationArrow: widget.allowYearsChange,
-        initialSelectedDate: widget.selectedDate,
+        initialSelectedDate: null,
         initialDisplayDate: widget.selectedDate,
         todayHighlightColor: AppColors.blueColor,
         headerStyle: DateRangePickerHeaderStyle(

@@ -5,6 +5,7 @@ class Urls {
   //static const baseUrl = 'https://fdvgtuat.itfaq.cloud/api/';
 
   static const login = '${baseUrl}user/login';
+  static const uploadPhoto = '${baseUrl}document/profile-photo';
   static const checkUserExist = '${baseUrl}user/isUser';
   static const changeUserAccountStatus = '${baseUrl}user/changeStatus';
   static const register = '${baseUrl}user/register';

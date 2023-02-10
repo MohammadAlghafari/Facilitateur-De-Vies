@@ -36,7 +36,7 @@ class _TableRangeCalendarYearsState extends State<TableRangeCalendarYears> {
         showNavigationArrow: true,
         initialSelectedDate: widget.selectedDate,
         initialDisplayDate: widget.selectedDate,
-        maxDate: widget.selectedDate,
+        maxDate: DateTime(DateTime.now().year - 19, DateTime.now().month + 1),
         todayHighlightColor: AppColors.blueColor,
         headerStyle: DateRangePickerHeaderStyle(
           backgroundColor: Colors.black,

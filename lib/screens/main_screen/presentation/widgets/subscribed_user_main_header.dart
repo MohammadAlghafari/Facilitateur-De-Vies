@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/local_storage/storage_manager.dart';
 import '../../../../shared_widgets/circle_container_with_name.dart';
+import '../../../../shared_widgets/circle_image_file_with_border.dart';
 import '../../../../shared_widgets/circle_image_with_border.dart';
 import '../../../../shared_widgets/custom_location_picker_button.dart';
 import '../../../../shared_widgets/custom_notification_button.dart';
@@ -16,6 +17,7 @@ class SubscribedUserMainHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String? photo = StorageManager.getUserPhoto();
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.w),
       child: Row(
@@ -49,11 +51,15 @@ class SubscribedUserMainHeader extends StatelessWidget {
                   width: 35.h,
                   height: 35.h,
                 ), */
-                CircleContainerWithName(
-                  name: StorageManager.getFullName()!,
-                  width: 35.h,
-                  height: 35.h,
-                ),
+
+                photo == null || photo.isEmpty
+                    ? CircleContainerWithName(
+                        name: StorageManager.getFullName()!,
+                        width: 35.h,
+                        height: 35.h,
+                      )
+                    : CircleImageFileWithBorder(
+                        photoFile: photo, width: 35.h, height: 35.h)
               ],
             ),
           ),

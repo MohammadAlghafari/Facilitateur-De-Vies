@@ -21,7 +21,7 @@ void main() {
   const tUserNamne = 'userName';
   const tPassword = 'password';
   final LoginModel tLoginModel =
-      LoginModel(token: 'token', socid: '1', userId: '1',email: "emad1.2@hotma.com",fullName: "Emadeldin", addresses: [], subscriptionType: -1, clientId: 'Client Id', urssafMember: false);
+      LoginModel(token: 'token', socid: '1', userId: '1',email: "emad1.2@hotma.com",fullName: "Emadeldin", addresses: [], subscriptionType: -1, clientId: 'Client Id', urssafMember: false, photo: '');
   final tloginResponse = ApiResponse.completed(tLoginModel);
   final ApiResponse<LoginModel> tErrorResponse =
       ApiResponse.error(ErrorMessages.dioDefault);
